@@ -21,7 +21,10 @@ class RegistrationViewModel {
     self.password = password
   }
   
-  func save() {
-    let user = User(viewModel: self)
+  func save(userViewModel: UserViewModel) {
+    userViewModel.firstName = self.firstName
+    userViewModel.lastName = self.lastName
+    userViewModel.email = self.email
+    userViewModel.password = self.password
   }
 }

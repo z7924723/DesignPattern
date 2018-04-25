@@ -29,6 +29,7 @@ class UsersListViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let destination = segue.destination as! RegistrationUserViewController
     
@@ -37,6 +38,14 @@ class UsersListViewController: UIViewController {
     let viewModel = self.usersListViewModel.userViewModels[indexPath.row]
     
     destination.viewModel = viewModel
+  }
+  
+  // MARK: - Unwind Method
+  @IBAction func unwindToUsersListViewController(segue: UIStoryboardSegue) {
+    let source = segue.source as? RegistrationUserViewController
+    
+    let indexPath = (self.tableView.indexPathForSelectedRow)!
+    self.usersListViewModel.userViewModels[indexPath.row] = (source?.viewModel)!
   }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class RegistrationUserViewController: UIViewController {
- 
+  
   // MARK: - Porperties
   @IBOutlet weak var firstNameTextField: UITextField!
   @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,6 +17,8 @@ class RegistrationUserViewController: UIViewController {
   @IBOutlet weak var passwordTextField: UITextField!
   
   var viewModel: UserViewModel!
+  
+  var registrationViewMode: RegistrationViewModel!
   
   // Mark: - View Life Cycle
   override func viewDidLoad() {
@@ -33,13 +35,18 @@ class RegistrationUserViewController: UIViewController {
     self.passwordTextField.text = viewModel.password
   }
   
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    self.registrationViewMode = RegistrationViewModel(firstName: firstNameTextField.text!,
+                                                      lastName: lastNameTextField.text!,
+                                                      email: emailTextField.text!,
+                                                      password: passwordTextField.text!)
+    registrationViewMode.save(userViewModel: viewModel)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-  // MARK: - Actions
-  @IBAction func save(_ sender: Any) {
     
-  }
 }
