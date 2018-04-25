@@ -16,14 +16,21 @@ class RegistrationUserViewController: UIViewController {
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   
-  var userInfo: User!
+  var viewModel: UserViewModel!
   
   // Mark: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.firstNameTextField.text = userInfo.firstName
-    self.lastNameTextField.text = userInfo.lastName
+    updateView()
+  }
+  
+  // MARK: - View Methods
+  private func updateView() {
+    self.firstNameTextField.text = viewModel.firstName
+    self.lastNameTextField.text = viewModel.lastName
+    self.emailTextField.text = viewModel.email
+    self.passwordTextField.text = viewModel.password
   }
   
   override func didReceiveMemoryWarning() {
@@ -31,4 +38,8 @@ class RegistrationUserViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  // MARK: - Actions
+  @IBAction func save(_ sender: Any) {
+    
+  }
 }

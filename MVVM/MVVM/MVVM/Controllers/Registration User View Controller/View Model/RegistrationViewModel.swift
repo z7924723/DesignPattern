@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  RegistrationViewModel.swift
 //  MVVM
 //
 //  Created by PinguMac on 2018/4/25.
@@ -8,12 +8,11 @@
 
 import Foundation
 
-class User {
-  
-  var firstName :String!
-  var lastName :String!
-  var email :String!
-  var password :String!
+class RegistrationViewModel {
+  var firstName: String
+  var lastName: String
+  var email: String
+  var password: String
   
   init(firstName: String, lastName: String, email: String, password: String) {
     self.firstName = firstName
@@ -21,11 +20,8 @@ class User {
     self.email = email
     self.password = password
   }
-
-  init(viewModel: RegistrationViewModel) {
-    self.firstName = viewModel.firstName
-    self.lastName = viewModel.lastName
-    self.email = viewModel.email
-    self.password = viewModel.password
+  
+  func save() {
+    let user = User(viewModel: self)
   }
 }

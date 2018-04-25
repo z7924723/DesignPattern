@@ -144,7 +144,11 @@
                         <viewLayoutGuide key="safeArea" id="gYO-JF-YE9"/>
                     </view>
                     <navigationItem key="navigationItem" id="yrJ-uQ-SWO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ead-ha-bxs"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ead-ha-bxs">
+                            <connections>
+                                <action selector="save:" destination="7mY-va-oM5" id="dT1-Ru-Ecg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="rqu-qf-bk8" id="QCc-3T-oF7"/>

@@ -12,15 +12,16 @@ class UsersListViewController: UIViewController {
   
   // MARK: - Porperties
   @IBOutlet weak var tableView: UITableView!
+  
   private var dataAccess: DataAccess!
-  var users: [User]!
+  private var usersListViewModel: UsersListViewModel!
 
   // Mark: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.dataAccess = DataAccess()
-    users = dataAccess.getAllUsers()
+    self.usersListViewModel = UsersListViewModel(dataAccess: dataAccess)
   }
 
   override func didReceiveMemoryWarning() {
@@ -33,19 +34,23 @@ class UsersListViewController: UIViewController {
     
     let indexPath = (self.tableView.indexPathForSelectedRow)!
     
-    destination.userInfo = users[indexPath.row]
+    let viewModel = self.usersListViewModel.userViewModels[indexPath.row]
+    
+    destination.viewModel = viewModel
   }
 }
 
 extension UsersListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return users.count
+    return self.usersListViewModel.userViewModels.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
     
-    cell.textLabel?.text = "\(users[indexPath.row].firstName!), \(users[indexPath.row].lastName!)"
+    let userViewModel = self.usersListViewModel.userViewModels[indexPath.row]
+    
+    cell.textLabel?.text = "\(userViewModel.firstName!), \(userViewModel.lastName!)"
     return cell
   }
 }

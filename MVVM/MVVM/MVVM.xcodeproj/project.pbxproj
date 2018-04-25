@@ -15,6 +15,8 @@
 		70F6619E2090176300B294BB /* RegistrationUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6619D2090176300B294BB /* RegistrationUserViewController.swift */; };
 		70F661A120901AEA00B294BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F661A020901AEA00B294BB /* User.swift */; };
 		70F661A420901F0400B294BB /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F661A320901F0400B294BB /* DataAccess.swift */; };
+		70F661AC209060BB00B294BB /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F661AB209060BB00B294BB /* UsersListViewModel.swift */; };
+		70F661AE209065B100B294BB /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F661AD209065B100B294BB /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		70F6619D2090176300B294BB /* RegistrationUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationUserViewController.swift; sourceTree = "<group>"; };
 		70F661A020901AEA00B294BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		70F661A320901F0400B294BB /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
+		70F661AB209060BB00B294BB /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		70F661AD209065B100B294BB /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				70F6619D2090176300B294BB /* RegistrationUserViewController.swift */,
+				70F661AA2090608100B294BB /* View Model */,
 			);
 			path = "Registration User View Controller";
 			sourceTree = "<group>";
@@ -109,8 +114,25 @@
 			isa = PBXGroup;
 			children = (
 				70F6618A209014AE00B294BB /* UsersListViewController.swift */,
+				70F661A92090607400B294BB /* View Model */,
 			);
 			path = "Users List View Controller";
+			sourceTree = "<group>";
+		};
+		70F661A92090607400B294BB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				70F661AB209060BB00B294BB /* UsersListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		70F661AA2090608100B294BB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				70F661AD209065B100B294BB /* RegistrationViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				70F661A120901AEA00B294BB /* User.swift in Sources */,
+				70F661AC209060BB00B294BB /* UsersListViewModel.swift in Sources */,
 				70F6618B209014AE00B294BB /* UsersListViewController.swift in Sources */,
+				70F661AE209065B100B294BB /* RegistrationViewModel.swift in Sources */,
 				70F66189209014AE00B294BB /* AppDelegate.swift in Sources */,
 				70F6619E2090176300B294BB /* RegistrationUserViewController.swift in Sources */,
 				70F661A420901F0400B294BB /* DataAccess.swift in Sources */,
