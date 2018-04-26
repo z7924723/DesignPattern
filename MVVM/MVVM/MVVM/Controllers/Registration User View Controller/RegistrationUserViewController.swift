@@ -11,37 +11,55 @@ import UIKit
 class RegistrationUserViewController: UIViewController {
   
   // MARK: - Porperties
-  @IBOutlet weak var firstNameTextField: UITextField!
-  @IBOutlet weak var lastNameTextField: UITextField!
-  @IBOutlet weak var emailTextField: UITextField!
-  @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var firstNameLabel: UILabel!
+  @IBOutlet weak var lastNameLabel: UILabel!
+  @IBOutlet weak var emailTextField: BindingTextField! {
+    didSet {
+      emailTextField.bind { (email) in
+        self.registrationViewModel.email = email
+      }
+    }
+  }
+  
+  @IBOutlet weak var passwordTextField: BindingTextField! {
+    didSet {
+      passwordTextField.bind { (password) in
+        self.registrationViewModel.password = password
+      }
+    }
+  }
   
   var viewModel: UserViewModel!
   
-  var registrationViewMode: RegistrationViewModel!
+  var registrationViewModel: RegistrationViewModel!
   
   // Mark: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    configureData()
+    
     updateView()
+  }
+  
+  // MARK: - Configure Methods
+  private func configureData() {
+    self.registrationViewModel = RegistrationViewModel(viewModel: viewModel)
   }
   
   // MARK: - View Methods
   private func updateView() {
-    self.firstNameTextField.text = viewModel.firstName
-    self.lastNameTextField.text = viewModel.lastName
+    self.firstNameLabel.text = viewModel.firstName
+    self.lastNameLabel.text = viewModel.lastName
     self.emailTextField.text = viewModel.email
     self.passwordTextField.text = viewModel.password
   }
   
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    self.registrationViewMode = RegistrationViewModel(firstName: firstNameTextField.text!,
-                                                      lastName: lastNameTextField.text!,
-                                                      email: emailTextField.text!,
-                                                      password: passwordTextField.text!)
-    registrationViewMode.save(userViewModel: viewModel)
+    print(self.registrationViewModel)
+
+    registrationViewModel.save(userViewModel: viewModel)
   }
   
   override func didReceiveMemoryWarning() {

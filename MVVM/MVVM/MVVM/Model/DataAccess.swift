@@ -12,10 +12,10 @@ class DataAccess {
   
   func getAllUsers() -> [User] {
     var users = [User]()
-    users.append(User(firstName: "Gavin", lastName: "Wu", email: "asd@gmail.com", password: "123"))
-    users.append(User(firstName: "avin", lastName: "Wu", email: "asdf@gmail.com", password: "1234"))
-    users.append(User(firstName: "vin", lastName: "Wu", email: "asdg@gmail.com", password: "12345"))
-    users.append(User(firstName: "in", lastName: "Wu", email: "asdh@gmail.com", password: "123456"))
+    users.append(User(firstName: "Gavin", lastName: "Wu"))
+    users.append(User(firstName: "avin", lastName: "Wu"))
+    users.append(User(firstName: "vin", lastName: "Wu"))
+    users.append(User(firstName: "in", lastName: "Wu"))
     
     return users
   }

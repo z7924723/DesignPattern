@@ -46,6 +46,8 @@ class UsersListViewController: UIViewController {
     
     let indexPath = (self.tableView.indexPathForSelectedRow)!
     self.usersListViewModel.userViewModels[indexPath.row] = (source?.viewModel)!
+    
+    tableView.reloadData()
   }
 }
 

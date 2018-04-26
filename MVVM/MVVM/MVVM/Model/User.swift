@@ -15,11 +15,9 @@ class User {
   var email :String!
   var password :String!
   
-  init(firstName: String, lastName: String, email: String, password: String) {
+  init(firstName: String, lastName: String) {
     self.firstName = firstName
     self.lastName = lastName
-    self.email = email
-    self.password = password
   }
 
   init(viewModel: RegistrationViewModel) {

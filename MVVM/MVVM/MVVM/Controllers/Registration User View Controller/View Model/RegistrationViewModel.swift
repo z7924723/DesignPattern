@@ -11,14 +11,12 @@ import Foundation
 class RegistrationViewModel {
   var firstName: String
   var lastName: String
-  var email: String
-  var password: String
+  var email: String!
+  var password: String!
   
-  init(firstName: String, lastName: String, email: String, password: String) {
-    self.firstName = firstName
-    self.lastName = lastName
-    self.email = email
-    self.password = password
+  init(viewModel: UserViewModel) {
+    self.firstName = viewModel.firstName
+    self.lastName = viewModel.lastName
   }
   
   func save(userViewModel: UserViewModel) {

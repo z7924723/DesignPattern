@@ -77,31 +77,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-Ps-QC7" userLabel="First Name Text Field">
-                                <rect key="frame" x="120" y="88" width="239" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="969-Y2-9Sd" userLabel="Last Name Text Field">
-                                <rect key="frame" x="119" y="139" width="240" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ez6-Cw-2Eh" userLabel="Password Label">
                                 <rect key="frame" x="16" y="244" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rqu-qf-bk8" userLabel="Email Text Field">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rqu-qf-bk8" userLabel="Email Text Field" customClass="BindingTextField" customModule="MVVM" customModuleProvider="target">
                                 <rect key="frame" x="119" y="189" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCh-Pd-Yx6" userLabel="Password Text Field">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCh-Pd-Yx6" userLabel="Password Text Field" customClass="BindingTextField" customModule="MVVM" customModuleProvider="target">
                                 <rect key="frame" x="119" y="239" width="240" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -113,33 +101,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4E-mY-8kN" userLabel="First Name Label">
+                                <rect key="frame" x="119" y="93" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrK-ZW-N8x" userLabel="Last Name Label">
+                                <rect key="frame" x="119" y="144" width="240" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rqu-qf-bk8" firstAttribute="leading" secondItem="2Lu-vE-KdZ" secondAttribute="trailing" constant="62" id="1pl-TU-bAZ"/>
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="centerY" secondItem="Ez6-Cw-2Eh" secondAttribute="centerY" id="3Tu-9m-pjM"/>
-                            <constraint firstItem="969-Y2-9Sd" firstAttribute="centerY" secondItem="AbT-cE-mdg" secondAttribute="centerY" id="3gl-pr-C7a"/>
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="top" secondItem="rqu-qf-bk8" secondAttribute="bottom" constant="20" id="4eS-YF-BaC"/>
                             <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="yCh-Pd-Yx6" secondAttribute="trailing" constant="16" id="5vC-rw-J1e"/>
-                            <constraint firstItem="969-Y2-9Sd" firstAttribute="leading" secondItem="AbT-cE-mdg" secondAttribute="trailing" constant="25" id="7lG-jN-fw7"/>
+                            <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="RrK-ZW-N8x" secondAttribute="trailing" constant="16" id="79W-B8-Ue3"/>
                             <constraint firstItem="rqu-qf-bk8" firstAttribute="centerY" secondItem="2Lu-vE-KdZ" secondAttribute="centerY" id="8bQ-jC-UNO"/>
                             <constraint firstItem="AbT-cE-mdg" firstAttribute="top" secondItem="WlC-xm-nKI" secondAttribute="bottom" constant="30" id="B3r-b7-t7u"/>
                             <constraint firstItem="Ez6-Cw-2Eh" firstAttribute="top" secondItem="2Lu-vE-KdZ" secondAttribute="bottom" constant="29" id="Fod-aS-WUT"/>
+                            <constraint firstItem="RrK-ZW-N8x" firstAttribute="top" secondItem="A4E-mY-8kN" secondAttribute="bottom" constant="30" id="HFZ-cS-mdH"/>
                             <constraint firstItem="2Lu-vE-KdZ" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="IZ4-mX-N9V"/>
                             <constraint firstItem="2Lu-vE-KdZ" firstAttribute="top" secondItem="AbT-cE-mdg" secondAttribute="bottom" constant="29" id="JhT-JJ-ATQ"/>
-                            <constraint firstItem="969-Y2-9Sd" firstAttribute="top" secondItem="Fco-Ps-QC7" secondAttribute="bottom" constant="21" id="KsC-9I-n98"/>
                             <constraint firstItem="WlC-xm-nKI" firstAttribute="top" secondItem="gYO-JF-YE9" secondAttribute="top" constant="29" id="MAz-PA-yKg"/>
-                            <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="969-Y2-9Sd" secondAttribute="trailing" constant="16" id="Mto-OI-46U"/>
-                            <constraint firstItem="Fco-Ps-QC7" firstAttribute="centerY" secondItem="WlC-xm-nKI" secondAttribute="centerY" id="RA7-l3-Wbe"/>
+                            <constraint firstItem="RrK-ZW-N8x" firstAttribute="leading" secondItem="AbT-cE-mdg" secondAttribute="trailing" constant="25" id="QM2-sI-wRl"/>
                             <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="rqu-qf-bk8" secondAttribute="trailing" constant="16" id="RKC-Mn-680"/>
-                            <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="Fco-Ps-QC7" secondAttribute="trailing" constant="16" id="RKR-4M-FpO"/>
                             <constraint firstItem="WlC-xm-nKI" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="Xy1-PP-YPZ"/>
-                            <constraint firstItem="rqu-qf-bk8" firstAttribute="top" secondItem="969-Y2-9Sd" secondAttribute="bottom" constant="20" id="b33-h9-zvf"/>
-                            <constraint firstItem="Fco-Ps-QC7" firstAttribute="top" secondItem="gYO-JF-YE9" secondAttribute="top" constant="24" id="e1t-pk-F7E"/>
+                            <constraint firstItem="A4E-mY-8kN" firstAttribute="top" secondItem="gYO-JF-YE9" secondAttribute="top" constant="29" id="eAI-Gy-fAz"/>
+                            <constraint firstItem="RrK-ZW-N8x" firstAttribute="centerY" secondItem="AbT-cE-mdg" secondAttribute="centerY" id="fjo-po-FPo"/>
                             <constraint firstItem="AbT-cE-mdg" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="g0x-pF-rl4"/>
-                            <constraint firstItem="Fco-Ps-QC7" firstAttribute="leading" secondItem="WlC-xm-nKI" secondAttribute="trailing" constant="25" id="lnR-BS-biN"/>
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="leading" secondItem="Ez6-Cw-2Eh" secondAttribute="trailing" constant="29" id="n7h-Va-1KW"/>
                             <constraint firstItem="Ez6-Cw-2Eh" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="oPl-xv-dEO"/>
+                            <constraint firstItem="A4E-mY-8kN" firstAttribute="centerY" secondItem="WlC-xm-nKI" secondAttribute="centerY" id="xJV-Gc-Rle"/>
+                            <constraint firstItem="A4E-mY-8kN" firstAttribute="leading" secondItem="WlC-xm-nKI" secondAttribute="trailing" constant="24" id="ykC-gf-4Gu"/>
+                            <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="A4E-mY-8kN" secondAttribute="trailing" constant="16" id="z7E-HQ-hVv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gYO-JF-YE9"/>
                     </view>
@@ -152,15 +151,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="rqu-qf-bk8" id="QCc-3T-oF7"/>
-                        <outlet property="firstNameTextField" destination="Fco-Ps-QC7" id="TfE-aq-eGE"/>
-                        <outlet property="lastNameTextField" destination="969-Y2-9Sd" id="wfo-94-Wim"/>
+                        <outlet property="firstNameLabel" destination="A4E-mY-8kN" id="6yf-xb-cJ0"/>
+                        <outlet property="lastNameLabel" destination="RrK-ZW-N8x" id="NQ2-z9-Mbl"/>
                         <outlet property="passwordTextField" destination="yCh-Pd-Yx6" id="srd-gP-6C6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sY-x3-rpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dsf-vp-duY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="34"/>
+            <point key="canvasLocation" x="1792.8" y="33.733133433283363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FDj-ZR-7a3">
