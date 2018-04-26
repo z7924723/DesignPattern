@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -113,6 +114,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-yj-RCM" userLabel="Lock View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockAlert" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-Te-a5s" userLabel="Lock Image View">
+                                        <rect key="frame" x="134" y="237.5" width="106" height="127"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="127" id="iS2-mx-t8I"/>
+                                            <constraint firstAttribute="width" constant="106" id="lw8-QA-9tG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="N1I-Ox-ITO" appends="YES" id="Nsz-RU-lOl"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hLV-Te-a5s" firstAttribute="centerY" secondItem="Gf8-yj-RCM" secondAttribute="centerY" id="32Z-aA-pUD"/>
+                                    <constraint firstItem="hLV-Te-a5s" firstAttribute="centerX" secondItem="Gf8-yj-RCM" secondAttribute="centerX" id="Hmx-JX-5ue"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -120,9 +141,12 @@
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="centerY" secondItem="Ez6-Cw-2Eh" secondAttribute="centerY" id="3Tu-9m-pjM"/>
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="top" secondItem="rqu-qf-bk8" secondAttribute="bottom" constant="20" id="4eS-YF-BaC"/>
                             <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="yCh-Pd-Yx6" secondAttribute="trailing" constant="16" id="5vC-rw-J1e"/>
+                            <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="Gf8-yj-RCM" secondAttribute="trailing" id="64m-84-eVC"/>
                             <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="RrK-ZW-N8x" secondAttribute="trailing" constant="16" id="79W-B8-Ue3"/>
                             <constraint firstItem="rqu-qf-bk8" firstAttribute="centerY" secondItem="2Lu-vE-KdZ" secondAttribute="centerY" id="8bQ-jC-UNO"/>
                             <constraint firstItem="AbT-cE-mdg" firstAttribute="top" secondItem="WlC-xm-nKI" secondAttribute="bottom" constant="30" id="B3r-b7-t7u"/>
+                            <constraint firstItem="Gf8-yj-RCM" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" id="Ded-0l-XSk"/>
+                            <constraint firstItem="gYO-JF-YE9" firstAttribute="bottom" secondItem="Gf8-yj-RCM" secondAttribute="bottom" id="FFK-uH-6oQ"/>
                             <constraint firstItem="Ez6-Cw-2Eh" firstAttribute="top" secondItem="2Lu-vE-KdZ" secondAttribute="bottom" constant="29" id="Fod-aS-WUT"/>
                             <constraint firstItem="RrK-ZW-N8x" firstAttribute="top" secondItem="A4E-mY-8kN" secondAttribute="bottom" constant="30" id="HFZ-cS-mdH"/>
                             <constraint firstItem="2Lu-vE-KdZ" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="IZ4-mX-N9V"/>
@@ -132,6 +156,7 @@
                             <constraint firstItem="gYO-JF-YE9" firstAttribute="trailing" secondItem="rqu-qf-bk8" secondAttribute="trailing" constant="16" id="RKC-Mn-680"/>
                             <constraint firstItem="WlC-xm-nKI" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="Xy1-PP-YPZ"/>
                             <constraint firstItem="A4E-mY-8kN" firstAttribute="top" secondItem="gYO-JF-YE9" secondAttribute="top" constant="29" id="eAI-Gy-fAz"/>
+                            <constraint firstItem="Gf8-yj-RCM" firstAttribute="top" secondItem="gYO-JF-YE9" secondAttribute="top" id="fiu-1Z-O94"/>
                             <constraint firstItem="RrK-ZW-N8x" firstAttribute="centerY" secondItem="AbT-cE-mdg" secondAttribute="centerY" id="fjo-po-FPo"/>
                             <constraint firstItem="AbT-cE-mdg" firstAttribute="leading" secondItem="gYO-JF-YE9" secondAttribute="leading" constant="16" id="g0x-pF-rl4"/>
                             <constraint firstItem="yCh-Pd-Yx6" firstAttribute="leading" secondItem="Ez6-Cw-2Eh" secondAttribute="trailing" constant="29" id="n7h-Va-1KW"/>
@@ -143,20 +168,33 @@
                         <viewLayoutGuide key="safeArea" id="gYO-JF-YE9"/>
                     </view>
                     <navigationItem key="navigationItem" id="yrJ-uQ-SWO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ead-ha-bxs">
-                            <connections>
-                                <segue destination="Dsf-vp-duY" kind="unwind" unwindAction="unwindToUsersListViewControllerWithSegue:" id="iJI-1f-KNU"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="Ead-ha-bxs">
+                                <connections>
+                                    <segue destination="Dsf-vp-duY" kind="unwind" unwindAction="unwindToUsersListViewControllerWithSegue:" id="iJI-1f-KNU"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="lock" id="Dx8-m8-pZH" userLabel="Lock">
+                                <connections>
+                                    <action selector="securedInfo:" destination="7mY-va-oM5" id="8aU-xH-p3c"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="rqu-qf-bk8" id="QCc-3T-oF7"/>
                         <outlet property="firstNameLabel" destination="A4E-mY-8kN" id="6yf-xb-cJ0"/>
                         <outlet property="lastNameLabel" destination="RrK-ZW-N8x" id="NQ2-z9-Mbl"/>
+                        <outlet property="lockView" destination="Gf8-yj-RCM" id="iOu-vW-Rfx"/>
                         <outlet property="passwordTextField" destination="yCh-Pd-Yx6" id="srd-gP-6C6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sY-x3-rpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="N1I-Ox-ITO">
+                    <connections>
+                        <action selector="authCheck:" destination="7mY-va-oM5" id="Uzz-uZ-605"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <exit id="Dsf-vp-duY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1792.8" y="33.733133433283363"/>
@@ -180,4 +218,8 @@
             <point key="canvasLocation" x="230" y="34"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LockAlert" width="106" height="127"/>
+        <image name="lock" width="20" height="32"/>
+    </resources>
 </document>

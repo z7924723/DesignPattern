@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class RegistrationUserViewController: UIViewController {
   
   // MARK: - Porperties
+  @IBOutlet weak var lockView: UIView!
+  
   @IBOutlet weak var firstNameLabel: UILabel!
   @IBOutlet weak var lastNameLabel: UILabel!
   @IBOutlet weak var emailTextField: BindingTextField! {
@@ -57,8 +60,6 @@ class RegistrationUserViewController: UIViewController {
   
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    print(self.registrationViewModel)
-
     registrationViewModel.save(userViewModel: viewModel)
   }
   
@@ -66,5 +67,29 @@ class RegistrationUserViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  @IBAction func authCheck(_ sender: Any) {
+    let laContext: LAContext = LAContext()
     
+    if laContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+      laContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock with finger print") { (wasCorrect, error) in
+        if wasCorrect {
+          DispatchQueue.main.async {
+            self.lockView.isHidden = true
+            self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "unlock.png")
+          }
+        } else {
+          print("error")
+        }
+      }
+    } else {
+      print("not support touch id")
+    }
+  }
+  
+  @IBAction func securedInfo(_ sender: Any) {
+    self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "lock.png")
+    self.lockView.isHidden = false
+  }
 }
+
