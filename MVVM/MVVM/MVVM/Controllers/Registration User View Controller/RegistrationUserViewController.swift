@@ -52,8 +52,14 @@ class RegistrationUserViewController: UIViewController {
   
   // MARK: - View Methods
   private func updateView() {
-    self.firstNameLabel.text = viewModel.firstName
-    self.lastNameLabel.text = viewModel.lastName
+    self.viewModel.firstName.bind { (firstName) in
+      self.firstNameLabel.text = firstName
+    }
+    
+    self.viewModel.lastName.bind { (lastName) in
+      self.lastNameLabel.text = lastName
+    }
+    
     self.emailTextField.text = viewModel.email
     self.passwordTextField.text = viewModel.password
   }

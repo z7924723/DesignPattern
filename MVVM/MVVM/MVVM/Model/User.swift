@@ -10,14 +10,14 @@ import Foundation
 
 class User {
   
-  var firstName :String!
-  var lastName :String!
+  var firstName :Dynamic<String>!
+  var lastName :Dynamic<String>!
   var email :String!
   var password :String!
   
   init(firstName: String, lastName: String) {
-    self.firstName = firstName
-    self.lastName = lastName
+    self.firstName = Dynamic<String>(firstName)
+    self.lastName = Dynamic<String>(lastName)
   }
 
   init(viewModel: RegistrationViewModel) {

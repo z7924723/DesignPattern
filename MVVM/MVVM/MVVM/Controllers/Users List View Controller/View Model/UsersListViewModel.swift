@@ -27,8 +27,8 @@ class UsersListViewModel {
 }
 
 class UserViewModel {
-  var firstName: String!
-  var lastName: String!
+  var firstName: Dynamic<String>!
+  var lastName: Dynamic<String>!
   var email: String!
   var password: String!
   

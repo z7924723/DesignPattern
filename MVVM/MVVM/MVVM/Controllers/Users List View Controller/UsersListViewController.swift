@@ -61,7 +61,7 @@ extension UsersListViewController: UITableViewDataSource {
     
     let userViewModel = self.usersListViewModel.userViewModels[indexPath.row]
     
-    cell.textLabel?.text = "\(userViewModel.firstName!), \(userViewModel.lastName!)"
+    cell.textLabel?.text = "\(userViewModel.firstName.value!), \(userViewModel.lastName.value!)"
     return cell
   }
 }
