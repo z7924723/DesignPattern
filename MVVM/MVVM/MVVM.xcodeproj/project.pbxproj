@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		70CE68722092F8F90030725E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE68712092F8F90030725E /* SettingViewController.swift */; };
 		70CE6875209303840030725E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE6874209303840030725E /* UserDefaults.swift */; };
+		70CE68782094BF2F0030725E /* BrokenRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE68772094BF2F0030725E /* BrokenRule.swift */; };
 		70F66189209014AE00B294BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F66188209014AE00B294BB /* AppDelegate.swift */; };
 		70F6618B209014AE00B294BB /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6618A209014AE00B294BB /* UsersListViewController.swift */; };
 		70F6618E209014AE00B294BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70F6618C209014AE00B294BB /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		70CE68712092F8F90030725E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		70CE6874209303840030725E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		70CE68772094BF2F0030725E /* BrokenRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokenRule.swift; sourceTree = "<group>"; };
 		70F66185209014AE00B294BB /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F66188209014AE00B294BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70F6618A209014AE00B294BB /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 				70CE6874209303840030725E /* UserDefaults.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		70CE68762094BF1C0030725E /* Broken Rule */ = {
+			isa = PBXGroup;
+			children = (
+				70CE68772094BF2F0030725E /* BrokenRule.swift */,
+			);
+			path = "Broken Rule";
 			sourceTree = "<group>";
 		};
 		70F6617C209014AE00B294BB = {
@@ -156,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				70F661AD209065B100B294BB /* RegistrationViewModel.swift */,
+				70CE68762094BF1C0030725E /* Broken Rule */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 				70CE68722092F8F90030725E /* SettingViewController.swift in Sources */,
 				70F661B42090D8D200B294BB /* BindingTextField.swift in Sources */,
 				70F6619E2090176300B294BB /* RegistrationUserViewController.swift in Sources */,
+				70CE68782094BF2F0030725E /* BrokenRule.swift in Sources */,
 				70F661A420901F0400B294BB /* DataAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

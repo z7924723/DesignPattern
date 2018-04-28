@@ -28,7 +28,18 @@ class Dynamic<T> {
   }
 }
 
-class RegistrationViewModel {
+class RegistrationViewModel: BrokenRuleProtocol {
+  // MARK: - Broken Rule Protocol Properties
+  var brokenRules: [BrokenRule] = [BrokenRule]()
+  var isVaild: Bool {
+    get {
+      self.brokenRules = [BrokenRule]()
+      self.validate()
+      return self.brokenRules.count == 0 ? true : false
+    }
+  }
+  
+  // MARK: - User Registration Properties
   var firstName: Dynamic<String>!
   var lastName: Dynamic<String>!
   var email: String!
@@ -44,5 +55,17 @@ class RegistrationViewModel {
     userViewModel.lastName = self.lastName
     userViewModel.email = self.email
     userViewModel.password = self.password
+  }
+}
+
+extension RegistrationViewModel {
+  private func validate() {
+    if email.isEmpty {
+      self.brokenRules.append(BrokenRule(propertyName: "email", message: "Require email"))
+    }
+    
+    if password.isEmpty {
+      self.brokenRules.append(BrokenRule(propertyName: "password", message: "Request password"))
+    }
   }
 }

@@ -74,6 +74,18 @@ class RegistrationUserViewController: UIViewController {
     registrationViewModel.save(userViewModel: viewModel)
   }
   
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    
+    registrationViewModel.email = emailTextField.text!
+    registrationViewModel.password = passwordTextField.text!
+    
+    if registrationViewModel.isVaild {
+      return true
+    } else {
+     return false
+    }
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
