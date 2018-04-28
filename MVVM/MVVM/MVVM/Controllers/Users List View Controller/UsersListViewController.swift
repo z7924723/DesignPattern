@@ -15,6 +15,17 @@ class UsersListViewController: UIViewController {
   
   private var dataAccess: DataAccess!
   private var usersListViewModel: UsersListViewModel!
+  
+  // MARK: - Segues
+  private enum Segue {
+    static let Setting = "Setting"
+    static let Registration = "Registration"
+  }
+  
+  private enum UnwindSegue {
+    static let FromSetting = "FromSetting"
+    static let FromRegistratoin = "FromRegistratoin"
+  }
 
   // Mark: - View Life Cycle
   override func viewDidLoad() {
@@ -31,23 +42,53 @@ class UsersListViewController: UIViewController {
 
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    let destination = segue.destination as! RegistrationUserViewController
+    guard let identifier = segue.identifier else {
+      return
+    }
     
-    let indexPath = (self.tableView.indexPathForSelectedRow)!
-    
-    let viewModel = self.usersListViewModel.userViewModels[indexPath.row]
-    
-    destination.viewModel = viewModel
+    switch identifier {
+    case Segue.Registration:
+      guard let destination = segue.destination as? RegistrationUserViewController else {
+        return
+      }
+      
+      let indexPath = (self.tableView.indexPathForSelectedRow)!
+      
+      let viewModel = self.usersListViewModel.userViewModels[indexPath.row]
+      
+      destination.viewModel = viewModel
+      
+    case Segue.Setting:
+      break
+      
+    default:
+      break
+    }
   }
   
   // MARK: - Unwind Method
   @IBAction func unwindToUsersListViewController(segue: UIStoryboardSegue) {
-    let source = segue.source as? RegistrationUserViewController
+    guard let identifier = segue.identifier else {
+      return
+    }
     
-    let indexPath = (self.tableView.indexPathForSelectedRow)!
-    self.usersListViewModel.userViewModels[indexPath.row] = (source?.viewModel)!
+    switch identifier {
+    case UnwindSegue.FromRegistratoin:
+      guard let source = segue.source as? RegistrationUserViewController else {
+        return
+      }
+      
+      let indexPath = (self.tableView.indexPathForSelectedRow)!
+      self.usersListViewModel.userViewModels[indexPath.row] = (source.viewModel)!
+      
+      tableView.reloadData()
     
-    tableView.reloadData()
+    case UnwindSegue.FromSetting:
+      break
+      
+    default:
+      break
+    }
   }
 }
 

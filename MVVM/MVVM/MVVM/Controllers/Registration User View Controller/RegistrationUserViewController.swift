@@ -33,10 +33,10 @@ class RegistrationUserViewController: UIViewController {
   }
   
   var viewModel: UserViewModel!
-  
   var registrationViewModel: RegistrationViewModel!
+  var dataIsLock: Bool! = true
   
-  // Mark: - View Life Cycle
+  // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -52,6 +52,11 @@ class RegistrationUserViewController: UIViewController {
   
   // MARK: - View Methods
   private func updateView() {
+    if UserDefaults.secureIsOpen() == false {
+      lockView.isHidden = true
+      self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "unlock.png")
+    }
+    
     self.viewModel.firstName.bind { (firstName) in
       self.firstNameLabel.text = firstName
     }
@@ -81,11 +86,13 @@ class RegistrationUserViewController: UIViewController {
       laContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock with finger print") { (wasCorrect, error) in
         if wasCorrect {
           DispatchQueue.main.async {
+            self.dataIsLock = false
             self.lockView.isHidden = true
             self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "unlock.png")
           }
         } else {
-          print("error")
+          print(error.debugDescription)
+          return
         }
       }
     } else {
@@ -93,9 +100,16 @@ class RegistrationUserViewController: UIViewController {
     }
   }
   
-  @IBAction func securedInfo(_ sender: Any) {
-    self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "lock.png")
-    self.lockView.isHidden = false
+  @IBAction func lockDidTapped(_ sender: Any) {
+    guard dataIsLock == true else {
+      self.dataIsLock = true
+      self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "lock.png")
+      self.lockView.isHidden = false
+      
+      UserDefaults.setSecureValue(switchOption: true)
+      return
+    }
+    authCheck(dataIsLock)
   }
 }
 

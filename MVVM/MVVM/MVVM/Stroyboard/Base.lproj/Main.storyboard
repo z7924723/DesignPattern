@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="7mY-va-oM5" kind="show" id="p62-Tf-BFa"/>
+                                            <segue destination="7mY-va-oM5" kind="show" identifier="Registration" id="p62-Tf-BFa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -49,7 +50,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dre-a7-YKk"/>
+                    <navigationItem key="navigationItem" id="dre-a7-YKk">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="setting" id="KBR-Mw-ucR">
+                            <connections>
+                                <segue destination="NEj-mA-LLq" kind="presentation" identifier="Setting" modalTransitionStyle="coverVertical" id="XJX-Z2-DfV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Sbq-6u-iHG" id="bUk-ZJ-GBd"/>
                     </connections>
@@ -57,6 +64,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="33.733133433283363"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="Fty-3W-hJi">
+            <objects>
+                <tableViewController id="GUE-Aj-EH5" customClass="SettingViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KuV-yJ-uMh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="Pzf-b9-vTn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2dC-J2-pvb">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2dC-J2-pvb" id="wRh-GA-yfX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gT-eF-ZHv" userLabel="Secure Label">
+                                                    <rect key="frame" x="16" y="11" width="54" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lar-dm-LAc">
+                                                    <rect key="frame" x="312" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchOnChanged:" destination="GUE-Aj-EH5" eventType="valueChanged" id="kcL-in-wMm"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lar-dm-LAc" firstAttribute="centerY" secondItem="4gT-eF-ZHv" secondAttribute="centerY" id="8ri-F0-ckq"/>
+                                                <constraint firstItem="4gT-eF-ZHv" firstAttribute="leading" secondItem="wRh-GA-yfX" secondAttribute="leadingMargin" id="Dfb-Ux-Udj"/>
+                                                <constraint firstAttribute="trailing" secondItem="lar-dm-LAc" secondAttribute="trailing" constant="14" id="UsY-pa-Jp6"/>
+                                                <constraint firstAttribute="bottom" secondItem="lar-dm-LAc" secondAttribute="bottom" constant="6" id="WpB-r9-Fan"/>
+                                                <constraint firstItem="lar-dm-LAc" firstAttribute="top" secondItem="wRh-GA-yfX" secondAttribute="top" constant="6" id="X6M-ek-gtc"/>
+                                                <constraint firstItem="4gT-eF-ZHv" firstAttribute="top" secondItem="wRh-GA-yfX" secondAttribute="topMargin" id="dWf-rd-7qm"/>
+                                                <constraint firstItem="4gT-eF-ZHv" firstAttribute="bottom" secondItem="wRh-GA-yfX" secondAttribute="bottomMargin" id="eeA-Dl-w65"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="otw-5J-MtG">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sap-Ex-uVc">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sap-Ex-uVc" id="3Dd-HO-3YW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="GUE-Aj-EH5" id="SrP-I1-VG5"/>
+                            <outlet property="delegate" destination="GUE-Aj-EH5" id="UKk-VT-W6K"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Q1d-fl-Pgz">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="close" id="aVX-VH-qoL" userLabel="Dismiss botton">
+                            <connections>
+                                <segue destination="dek-lX-orI" kind="unwind" identifier="FromSetting" unwindAction="unwindToUsersListViewControllerWithSegue:" id="3P2-Ph-744"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="secureSwitch" destination="lar-dm-LAc" id="tyN-vn-Cmy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6W-RW-vOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dek-lX-orI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2736.8000000000002" y="-255.02248875562222"/>
         </scene>
         <!--Registration User View Controller-->
         <scene sceneID="1lG-Tz-wl1">
@@ -117,7 +202,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-yj-RCM" userLabel="Lock View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockAlert" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-Te-a5s" userLabel="Lock Image View">
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="hLV-Te-a5s" userLabel="Lock Image View">
                                         <rect key="frame" x="134" y="237.5" width="106" height="127"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="127" id="iS2-mx-t8I"/>
@@ -171,12 +256,12 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="save" id="Ead-ha-bxs">
                                 <connections>
-                                    <segue destination="Dsf-vp-duY" kind="unwind" unwindAction="unwindToUsersListViewControllerWithSegue:" id="iJI-1f-KNU"/>
+                                    <segue destination="Dsf-vp-duY" kind="unwind" identifier="FromRegistratoin" unwindAction="unwindToUsersListViewControllerWithSegue:" id="iJI-1f-KNU"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="lock" id="Dx8-m8-pZH" userLabel="Lock">
                                 <connections>
-                                    <action selector="securedInfo:" destination="7mY-va-oM5" id="8aU-xH-p3c"/>
+                                    <action selector="lockDidTapped:" destination="7mY-va-oM5" id="Ear-RO-xhY"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -197,7 +282,7 @@
                 </tapGestureRecognizer>
                 <exit id="Dsf-vp-duY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1792.8" y="33.733133433283363"/>
+            <point key="canvasLocation" x="1798" y="502"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FDj-ZR-7a3">
@@ -217,9 +302,29 @@
             </objects>
             <point key="canvasLocation" x="230" y="34"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GPz-iZ-LTl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NEj-mA-LLq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1zR-gw-QXh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GUE-Aj-EH5" kind="relationship" relationship="rootViewController" id="Lrg-R7-YkU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MsW-q1-15b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797.5999999999999" y="-255.02248875562222"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="LockAlert" width="106" height="127"/>
+        <image name="Fingerprint" width="128" height="128"/>
+        <image name="close" width="32" height="32"/>
         <image name="lock" width="20" height="32"/>
+        <image name="setting" width="32" height="32"/>
     </resources>
 </document>
