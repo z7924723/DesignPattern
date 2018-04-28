@@ -32,7 +32,7 @@ class RegistrationUserViewController: UIViewController {
     }
   }
   
-  var viewModel: UserViewModel!
+  var userViewModel: UserViewModel!
   var registrationViewModel: RegistrationViewModel!
   var dataIsLock: Bool! = true
   
@@ -47,7 +47,7 @@ class RegistrationUserViewController: UIViewController {
   
   // MARK: - Configure Methods
   private func configureData() {
-    self.registrationViewModel = RegistrationViewModel(viewModel: viewModel)
+    self.registrationViewModel = RegistrationViewModel(viewModel: userViewModel)
   }
   
   // MARK: - View Methods
@@ -57,21 +57,21 @@ class RegistrationUserViewController: UIViewController {
       self.navigationItem.rightBarButtonItems![1].image = UIImage(named: "unlock.png")
     }
     
-    self.viewModel.firstName.bind { (firstName) in
+    self.userViewModel.firstName.bind { (firstName) in
       self.firstNameLabel.text = firstName
     }
     
-    self.viewModel.lastName.bind { (lastName) in
+    self.userViewModel.lastName.bind { (lastName) in
       self.lastNameLabel.text = lastName
     }
     
-    self.emailTextField.text = viewModel.email
-    self.passwordTextField.text = viewModel.password
+    self.emailTextField.text = userViewModel.email
+    self.passwordTextField.text = userViewModel.password
   }
   
   // MARK: - Navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    registrationViewModel.save(userViewModel: viewModel)
+    registrationViewModel.save(to: userViewModel)
   }
   
   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

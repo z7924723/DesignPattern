@@ -50,11 +50,11 @@ class RegistrationViewModel: BrokenRuleProtocol {
     self.lastName = viewModel.lastName
   }
   
-  func save(userViewModel: UserViewModel) {
-    userViewModel.firstName = self.firstName
-    userViewModel.lastName = self.lastName
-    userViewModel.email = self.email
-    userViewModel.password = self.password
+  func save(to viewModel: UserViewModel) {
+    viewModel.firstName = self.firstName
+    viewModel.lastName = self.lastName
+    viewModel.email = self.email
+    viewModel.password = self.password
   }
 }
 

@@ -56,7 +56,7 @@ class UsersListViewController: UIViewController {
       
       let viewModel = self.usersListViewModel.userViewModels[indexPath.row]
       
-      destination.viewModel = viewModel
+      destination.userViewModel = viewModel
       
     case Segue.Setting:
       break
@@ -79,7 +79,7 @@ class UsersListViewController: UIViewController {
       }
       
       let indexPath = (self.tableView.indexPathForSelectedRow)!
-      self.usersListViewModel.userViewModels[indexPath.row] = (source.viewModel)!
+      self.usersListViewModel.userViewModels[indexPath.row] = (source.userViewModel)!
       
       tableView.reloadData()
     
